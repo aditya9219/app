@@ -45,10 +45,18 @@
         <span>Email address</span>
         <input type="email" placeholder="Your email address" formControlName="email" pInputText>
       </label>
-      <div
-        class="error"
+
+      <div class="error"
         *ngIf="user.get('email').hasError('required') && user.get('email').touched">
            Email is required
+       </div>
+       <label>
+          <span>Brief Description</span>
+          <textarea pInputTextarea formControlName="briefdescription" placeholder="Tell more about yourself..!"></textarea>
+       </label>
+        <div class="error"
+        *ngIf="user.get('briefdescription').hasError('required') && user.get('briefdescription').touched">
+           Please fill this field
        </div>
       <button type="submit" [disabled]="user.invalid">Sign up</button>
     </form>

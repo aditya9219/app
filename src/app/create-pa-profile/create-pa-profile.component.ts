@@ -17,7 +17,8 @@ export class CreatePaProfileComponent implements OnInit {
       mobileno: new FormControl('', [Validators.required,Validators.maxLength(10),Validators.pattern("^[7-9][0-9]{9}$")]),
       email: new FormControl('', [Validators.required]),
       password: new FormControl('', [Validators.required]),
-      confirmpassword: new FormControl('', [Validators.required])
+      confirmpassword: new FormControl('', [Validators.required]),
+      briefdescription: new FormControl('', [Validators.required])
     });
   }
 
