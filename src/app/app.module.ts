@@ -8,11 +8,13 @@ import {InputTextModule} from 'primeng/primeng';
 
 import { AppComponent } from './app.component';
 import { CreatePaProfileComponent } from './create-pa-profile/create-pa-profile.component';
+import { EqualValidator } from './equal-validator.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CreatePaProfileComponent
+    CreatePaProfileComponent,
+    EqualValidator
   ],
   imports: [
     BrowserModule,

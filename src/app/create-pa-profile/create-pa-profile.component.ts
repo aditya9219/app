@@ -13,14 +13,19 @@ export class CreatePaProfileComponent implements OnInit {
   constructor() {}
   ngOnInit() {
     this.user = new FormGroup({
-      name: new FormControl('', [Validators.required, Validators.minLength(2)]),
-      account: new FormGroup({
-        email: new FormControl('', Validators.required),
-        confirm: new FormControl('', Validators.required)
-      })
+      name: new FormControl('', [Validators.required, Validators.minLength(4),Validators.maxLength(10),Validators.pattern("[a-z A-Z 0-9]+")]),
+      mobileno: new FormControl('', [Validators.required,Validators.maxLength(10),Validators.pattern("^[7-9][0-9]{9}$")]),
+      email: new FormControl('', [Validators.required]),
+      password: new FormControl('', [Validators.required]),
+      confirmpassword: new FormControl('', [Validators.required])
     });
   }
-  
+
+  onBlurMethod(user)
+  {
+    console.log("onblur method called ",user.get('confirmpassword'));
+  }
+
   onSubmit({ value, valid }: { value: User, valid: boolean }) 
   {
     console.log(value, valid);

@@ -1,34 +1,54 @@
 
 <form novalidate (ngSubmit)="onSubmit(user)" [formGroup]="user">
       <label>
-        <span>Full name</span>
-        <input type="text" placeholder="Your full name" formControlName="name" pInputText>
+        <span>User Name</span>
+        <input type="text"  maxlength="15" placeholder="Your full name" formControlName="name" pInputText>
       </label>
       <div class="error" *ngIf="user.get('name').hasError('required') && user.get('name').touched">
-        Name is required
+        User Name is required
       </div>
       <div class="error" *ngIf="user.get('name').hasError('minlength') && user.get('name').touched">
-        Minimum of 2 characters
+        Minimum of 4 characters are required
       </div>
-      <div formGroupName="account">
-        <label>
-          <span>Email address</span>
-          <input type="email" placeholder="Your email address" formControlName="email" pInputText>
-        </label>
-        <div
-          class="error"
-          *ngIf="user.get('account').get('email').hasError('required') && user.get('account').get('email').touched">
-          Email is required
-        </div>
-        <label>
-          <span>Confirm address</span>
-          <input type="email" placeholder="Confirm your email address" formControlName="confirm" pInputText>
-        </label>
-        <div
-          class="error"
-          *ngIf="user.get('account').get('confirm').hasError('required') && user.get('account').get('confirm').touched">
-          Confirming email is required
-        </div>
+      <div class="error" *ngIf="user.get('name').hasError('pattern') && user.get('name').touched">
+        Only Alphabets and Numeric Characters are allowed
       </div>
+      
+       <label>
+        <span>Password</span>
+        <input type="password" placeholder="Password" formControlName="password" pInputText >
+      </label>
+       <div class="error" *ngIf="user.get('password').hasError('required') && user.get('password').touched">
+        Password is required
+       </div>
+
+       <label>
+         <span>Confirm Password</span>
+         <input type="password" formControlName="confirmpassword" placeholder="Confirm Password" validateEqual="password" pInputText (blur)="onBlurMethod(user)">
+       </label>
+       <div class="error" *ngIf="user.get('confirmpassword')._status == 'INVALID' && user.get('confirmpassword').touched">
+         Password mismatch
+       </div>
+
+      <label>
+        <span>Mobile No.</span>
+        <input type="number" placeholder="Your 10 Digits Mobile No."  max="9999999999" formControlName="mobileno" pInputText>
+      </label>
+      <div class="error" *ngIf="user.get('mobileno').hasError('required') && user.get('mobileno').touched">
+        Mobile No. is required.
+      </div>
+      <div class="error" *ngIf="user.get('mobileno').hasError('pattern') && user.get('mobileno').touched">
+        Invalid Mobile No.
+      </div>
+
+      <label>
+        <span>Email address</span>
+        <input type="email" placeholder="Your email address" formControlName="email" pInputText>
+      </label>
+      <div
+        class="error"
+        *ngIf="user.get('email').hasError('required') && user.get('email').touched">
+           Email is required
+       </div>
       <button type="submit" [disabled]="user.invalid">Sign up</button>
     </form>
