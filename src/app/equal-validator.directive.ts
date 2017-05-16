@@ -23,7 +23,6 @@ export class EqualValidator implements Validator {
 
         // control vlaue
         let e = c.root.get(this.validateEqual);
-        console.log("the self value is ",v," and the control value is ",e);
         // value not equal
         if (e && v !== e.value && !this.isReverse) {
             console.log("value not equal")

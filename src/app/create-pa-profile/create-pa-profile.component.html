@@ -24,7 +24,7 @@
 
        <label>
          <span>Confirm Password</span>
-         <input type="password" formControlName="confirmpassword" placeholder="Confirm Password" validateEqual="password" pInputText (blur)="onBlurMethod(user)">
+         <input type="password" formControlName="confirmpassword" placeholder="Confirm Password" validateEqual="password" pInputText >
        </label>
        <div class="error" *ngIf="user.get('confirmpassword')._status == 'INVALID' && user.get('confirmpassword').touched">
          Password mismatch
@@ -32,7 +32,7 @@
 
       <label>
         <span>Mobile No.</span>
-        <input type="number" placeholder="Your 10 Digits Mobile No."  max="9999999999" formControlName="mobileno" pInputText>
+        <input type="text" placeholder="Your 10 Digits Mobile No."  max="9999999999" formControlName="mobileno" pInputText>
       </label>
       <div class="error" *ngIf="user.get('mobileno').hasError('required') && user.get('mobileno').touched">
         Mobile No. is required.

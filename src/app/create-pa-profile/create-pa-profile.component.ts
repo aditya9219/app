@@ -21,11 +21,6 @@ export class CreatePaProfileComponent implements OnInit {
     });
   }
 
-  onBlurMethod(user)
-  {
-    console.log("onblur method called ",user.get('confirmpassword'));
-  }
-
   onSubmit({ value, valid }: { value: User, valid: boolean }) 
   {
     console.log(value, valid);
