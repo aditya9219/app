@@ -58,5 +58,5 @@
         *ngIf="user.get('briefdescription').hasError('required') && user.get('briefdescription').touched">
            Please fill this field
        </div>
-      <button type="submit" [disabled]="user.invalid">Sign up</button>
+      <button type="submit" [disabled]="user.invalid" routerLink="/myprofile">Sign up</button>
     </form>
